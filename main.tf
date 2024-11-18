@@ -2,7 +2,7 @@ terraform {
     backend "s3" {
         bucket = "mir-terraform-s3-bucket"
         key    = "jhooq/terraform/remote/s3/terraform.tfstate"
-        region     = "eu-central-1"
+        region     = "ap-south-1"
         dynamodb_table = "dynamodb-state-locking"        
     }
 }
