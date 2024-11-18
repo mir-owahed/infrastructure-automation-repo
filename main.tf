@@ -9,9 +9,9 @@ terraform {
 
 
 
-resource "aws_instance" "ec2_example" {
+resource "aws_instance" "ec2_terraform" {
 
-    ami = "ami-0767046d1677be5a0" 
+    ami = "ami-0aebec83a182ea7ea" 
 
     instance_type = "t2.micro"
 
