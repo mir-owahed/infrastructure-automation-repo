@@ -9,7 +9,7 @@ terraform {
 
 
 
-resource "aws_instance" "ec2_terraform_auto" {
+resource "aws_instance" "ec2_terraform_automation" {
 
     ami = "ami-0aebec83a182ea7ea" 
 
