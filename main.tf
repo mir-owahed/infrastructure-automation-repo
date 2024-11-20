@@ -1,21 +1,33 @@
+# main.tf
+
 terraform {
-    backend "s3" {
-        bucket = "mir-terraform-s3-bucket"
-        key    = "key/terraform.tfstate"
-        region     = "ap-south-1"
-        dynamodb_table = "dynamodb-state-locking"        
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.16"
     }
+  }
+
+  required_version = ">= 1.2.0"
 }
 
+provider "aws" {
+  region  = "us-west-2"
+}
 
+resource "aws_instance" "app_server" {
+  ami           = "ami-08d70e59c07c61a3a"
+  instance_type = "t2.micro"
 
-resource "aws_instance" "ec2_terraform_automation" {
+  tags = {
+    Name = var.instance_name
+  }
+}
 
-    ami = "ami-0aebec83a182ea7ea" 
+# variables.tf
 
-    instance_type = "t2.micro"
-
-    tags = {
-      Name = "EC2 Instance with remote state"
-    }
+variable "instance_name" {
+  description = "Value of the Name tag for the EC2 instance"
+  type        = string
+  default     = "ExampleAppServerInstance"
 }
