@@ -11,9 +11,7 @@ terraform {
   required_version = ">= 1.2.0"
 }
 
-provider "aws" {
-  region  = "us-west-2"
-}
+
 
 resource "aws_instance" "app_server" {
   ami           = "ami-08d70e59c07c61a3a"
@@ -24,10 +22,3 @@ resource "aws_instance" "app_server" {
   }
 }
 
-# variables.tf
-
-variable "instance_name" {
-  description = "Value of the Name tag for the EC2 instance"
-  type        = string
-  default     = "ExampleAppServerInstance"
-}
