@@ -2,7 +2,7 @@
 
 
 resource "aws_instance" "app_server" {
-  ami           = "ami-0614680123427b75e"
+  ami           = "ami-0327f51db613d7bd2"
   instance_type = "a1.large"
 
   tags = {
